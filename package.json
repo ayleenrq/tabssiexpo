@@ -6,7 +6,8 @@
     "start": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" expo start",
     "android": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" expo start --android",
     "ios": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" expo start --ios",
-    "web": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" expo start --web"
+    "web": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" expo start --web",
+    "build": "npx expo export -p web"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
