@@ -32,77 +32,28 @@ const pages = [
 
 function Page1Illustration() {
     return (
-        <View style={ill.wrapper}>
-            <View style={ill.blob} />
-            <View style={ill.photo}>
-                <Image
-                    source={{ uri: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80' }}
-                    style={ill.photoImg}
-                />
-            </View>
-            <View style={ill.floatCard}>
-                <Ionicons name="laptop-outline" size={32} color="#333" />
-                <Text style={ill.floatCardText}>Macbook Pro</Text>
-            </View>
-            <View style={ill.successPill}>
-                <Text style={ill.successText}>Payment Success</Text>
-                <Ionicons name="checkmark-circle" size={16} color={Colors.green} />
-            </View>
-            <View style={ill.walletBubble}>
-                <Ionicons name="wallet" size={18} color={Colors.white} />
-            </View>
-        </View>
+        <Image
+            source={require('../assets/onboarding-1.png')}
+            style={ill.image}
+        />
     );
 }
 
 function Page2Illustration() {
     return (
-        <View style={ill.wrapper}>
-            <View style={ill.mockPhone}>
-                <View style={ill.dynamicIsland} />
-                <Text style={ill.mockText}>Ali Muhajirin</Text>
-                <View style={ill.mockSearch}><Text style={{ color: '#999', fontSize: 11 }}>Search</Text></View>
-                <View style={ill.mockPromo}><Text style={{ fontWeight: 'bold', fontSize: 12 }}>Holiday Sale 2025</Text></View>
-            </View>
-            <View style={ill.approvalCard}>
-                <Ionicons name="headset-outline" size={36} color="#333" style={{ marginRight: 12 }} />
-                <View>
-                    <Text style={ill.approvalTitle}>Apple Vision Pro</Text>
-                    <Text>$3499</Text>
-                    <View style={ill.approvedBadge}>
-                        <Text style={{ color: '#fff', fontSize: 10, fontWeight: 'bold' }}>Approved </Text>
-                        <Ionicons name="checkmark-circle-outline" size={12} color="#fff" />
-                    </View>
-                </View>
-            </View>
-        </View>
+        <Image
+            source={require('../assets/onboarding-2.png')}
+            style={ill.image}
+        />
     );
 }
 
 function Page3Illustration() {
-    const icons = [
-        { name: 'key-outline', top: 40, right: 30 },
-        { name: 'finger-print', bottom: 60, right: 30 },
-        { name: 'lock-closed-outline', bottom: 40, left: 60 },
-        { name: 'shield-checkmark-outline', top: 80, left: 30 },
-    ];
     return (
-        <View style={ill.wrapper}>
-            {[300, 220, 140].map((s) => (
-                <View key={s} style={[ill.ring, { width: s, height: s, borderRadius: s / 2 }]} />
-            ))}
-            <View style={ill.centerBubble}>
-                <Image 
-                    source={require('../assets/logo.png')} 
-                    style={{ width: 40, height: 40, tintColor: Colors.white, resizeMode: 'contain' }} 
-                />
-            </View>
-            {icons.map((ic) => (
-                <View key={ic.name} style={[ill.floatIcon, { top: ic.top, bottom: ic.bottom, left: ic.left, right: ic.right }]}>
-                    <Ionicons name={ic.name} size={18} color={Colors.primary} />
-                </View>
-            ))}
-        </View>
+        <Image
+            source={require('../assets/onboarding-3.png')}
+            style={ill.image}
+        />
     );
 }
 
@@ -231,163 +182,9 @@ const styles = StyleSheet.create({
 });
 
 const ill = StyleSheet.create({
-    wrapper: {
-        width: 300,
-        height: 320,
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-    },
-    blob: {
-        width: 250,
-        height: 250,
-        borderRadius: 125,
-        backgroundColor: '#F3F4F6',
-        position: 'absolute',
-    },
-    photo: {
-        width: 200,
-        height: 250,
-        borderRadius: 30,
-        overflow: 'hidden',
-        backgroundColor: '#D1D5DB',
-        position: 'absolute',
-    },
-    photoImg: { width: '100%', height: '100%' },
-    floatCard: {
-        position: 'absolute',
-        left: -20,
-        top: 40,
-        backgroundColor: Colors.white,
-        borderRadius: 12,
-        padding: 8,
-        alignItems: 'center',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 8,
-        elevation: 4,
-    },
-    floatCardText: { fontSize: 10, fontWeight: 'bold', marginTop: 4 },
-    successPill: {
-        position: 'absolute',
-        left: -30,
-        bottom: 30,
-        backgroundColor: Colors.white,
-        borderRadius: 30,
-        paddingHorizontal: 16,
-        paddingVertical: 12,
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 8,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 8,
-        elevation: 4,
-    },
-    successText: { fontWeight: 'bold', fontSize: 12 },
-    walletBubble: {
-        position: 'absolute',
-        right: -10,
-        bottom: 70,
-        backgroundColor: Colors.primary,
-        borderRadius: 20,
-        width: 40,
-        height: 40,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: 3,
-        borderColor: Colors.white,
-    },
-    mockPhone: {
-        width: 220,
-        height: 340,
-        backgroundColor: '#222',
-        borderRadius: 32,
-        padding: 8,
-        alignItems: 'center',
-        gap: 8,
-    },
-    dynamicIsland: {
-        width: 70,
-        height: 20,
-        backgroundColor: '#000',
-        borderRadius: 10,
-        marginTop: 4,
-    },
-    mockText: { fontSize: 10, fontWeight: 'bold', color: Colors.white, alignSelf: 'flex-start', marginLeft: 12 },
-    mockSearch: {
-        width: '85%',
-        height: 28,
-        backgroundColor: '#F3F4F6',
-        borderRadius: 14,
-        paddingHorizontal: 12,
-        justifyContent: 'center',
-    },
-    mockPromo: {
-        width: '85%',
-        height: 80,
-        backgroundColor: 'rgba(124,58,237,0.2)',
-        borderRadius: 12,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    approvalCard: {
-        position: 'absolute',
-        bottom: 20,
-        backgroundColor: Colors.white,
-        borderRadius: 16,
-        padding: 14,
-        width: 240,
-        flexDirection: 'row',
-        alignItems: 'center',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 8,
-        elevation: 4,
-    },
-    approvalTitle: { fontWeight: 'bold', fontSize: 13 },
-    approvedBadge: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: Colors.green,
-        borderRadius: 16,
-        paddingHorizontal: 8,
-        paddingVertical: 3,
-        marginTop: 4,
-        alignSelf: 'flex-start',
-    },
-    ring: {
-        position: 'absolute',
-        borderWidth: 1.5,
-        borderColor: 'rgba(124,58,237,0.1)',
-    },
-    centerBubble: {
-        width: 90,
-        height: 90,
-        borderRadius: 45,
-        backgroundColor: Colors.primary,
-        alignItems: 'center',
-        justifyContent: 'center',
-        shadowColor: Colors.primary,
-        shadowOpacity: 0.4,
-        shadowRadius: 16,
-        shadowOffset: { width: 0, height: 4 },
-        elevation: 8,
-    },
-    floatIcon: {
-        position: 'absolute',
-        width: 40,
-        height: 40,
-        backgroundColor: Colors.white,
-        borderRadius: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-        shadowColor: '#000',
-        shadowOpacity: 0.05,
-        shadowRadius: 8,
-        elevation: 3,
+    image: {
+        width: 335,
+        height: 366,
+        resizeMode: 'contain',
     },
 });

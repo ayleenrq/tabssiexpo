@@ -201,7 +201,7 @@ export default function ProfileScreen() {
                     <MenuItem icon="help-circle-outline" label={t('faq')} onPress={() => router.push('/faq')} />
                     <MenuItem icon="document-text-outline" label={t('terms')} onPress={() => router.push('/terms')} />
                     <MenuItem icon="shield-checkmark-outline" label={t('privacy')} onPress={() => router.push('/privacy')} />
-                    <MenuItem icon="log-out-outline" label={t('logout')} isLogout={true} />
+                    <MenuItem icon="log-out-outline" label={t('logout')} isLogout={true} onPress={() => router.replace('/login')} />
                 </View>
                 
             </ScrollView>
