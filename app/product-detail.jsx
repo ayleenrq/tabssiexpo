@@ -186,7 +186,7 @@ export default function ProductDetailScreen() {
 
                 {/* ── Recommendation ── */}
                 <View style={s.recHeader}>
-                    <Text style={s.recTitle}>Recomendation</Text>
+                    <Text style={s.recTitle}>Recommendation</Text>
                     <TouchableOpacity onPress={() => router.push('/market-see-all')}>
                         <Text style={s.recSeeAll}>See all</Text>
                     </TouchableOpacity>
@@ -210,6 +210,32 @@ export default function ProductDetailScreen() {
                             </View>
                         </TouchableOpacity>
                     ))}
+                </View>
+
+                {/* ── User Reviews Preview ── */}
+                <View style={[s.reviewsHeader, { marginTop: Spacing.xl }]}>
+                    <Text style={s.reviewsTitle}>User Reviews Component (124)</Text>
+                    <TouchableOpacity onPress={() => router.push('/reviews')}>
+                        <Text style={s.reviewsSeeAll}>See all</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={s.previewReviewCard}>
+                    <View style={s.previewReviewHeader}>
+                        <Image source={{ uri: 'https://i.pravatar.cc/100?img=12' }} style={s.previewAvatar} />
+                        <View style={s.previewReviewerInfo}>
+                            <Text style={s.previewReviewerName}>John Doe</Text>
+                            <View style={s.previewStarRow}>
+                                <Ionicons name="star" size={12} color="#F59E0B" />
+                                <Ionicons name="star" size={12} color="#F59E0B" />
+                                <Ionicons name="star" size={12} color="#F59E0B" />
+                                <Ionicons name="star" size={12} color="#F59E0B" />
+                                <Ionicons name="star" size={12} color="#F59E0B" />
+                            </View>
+                        </View>
+                        <Text style={s.previewReviewDate}>2 days ago</Text>
+                    </View>
+                    <Text style={s.previewCommentText}>Absolutely love this product! The quality is amazing and it arrived right on time. Highly recommended...</Text>
                 </View>
 
                 <View style={{ height: 20 }} />
@@ -427,4 +453,59 @@ const s = StyleSheet.create({
         alignItems: 'center',
     },
     ctaBtnText: { color: Colors.white, fontSize: 16, fontWeight: 'bold' },
+
+    // Reviews Preview
+    reviewsHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingHorizontal: Spacing.xl,
+        marginBottom: Spacing.md,
+    },
+    reviewsTitle: { fontSize: 16, fontWeight: 'bold', color: '#111' },
+    reviewsSeeAll: { fontSize: 14, color: Colors.primary, fontWeight: '500' },
+    
+    previewReviewCard: {
+        marginHorizontal: Spacing.xl,
+        padding: Spacing.lg,
+        backgroundColor: Colors.white,
+        borderRadius: Radius.lg,
+        borderWidth: 1,
+        borderColor: '#F3F4F6',
+        marginBottom: Spacing.xl,
+    },
+    previewReviewHeader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: Spacing.condensed || 8,
+    },
+    previewAvatar: {
+        width: 32,
+        height: 32,
+        borderRadius: 16,
+        backgroundColor: '#E5E7EB',
+    },
+    previewReviewerInfo: {
+        flex: 1,
+        paddingLeft: 10,
+    },
+    previewReviewerName: {
+        fontSize: 13,
+        fontWeight: 'bold',
+        color: '#111',
+        marginBottom: 2,
+    },
+    previewStarRow: {
+        flexDirection: 'row',
+        gap: 2,
+    },
+    previewReviewDate: {
+        fontSize: 11,
+        color: Colors.textGray,
+    },
+    previewCommentText: {
+        fontSize: 13,
+        color: '#444',
+        lineHeight: 18,
+    },
 });

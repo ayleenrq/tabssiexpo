@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 import { Colors, Radius, Spacing } from '../../constants/theme';
 
 const HISTORY_DATA = [
@@ -67,18 +68,17 @@ function HistoryItem({ item }) {
                     ) : null}
                     
                     <View style={s.totalRow}>
-                        <Text style={s.totalText}>Total {item.totalItems} product: </Text>
-                        <Text style={s.totalPrice}>{item.totalPrice}</Text>
+                        <Text style={s.totalText}>Total {item.totalItems} product: {item.totalPrice}</Text>
                     </View>
                 </View>
             </View>
 
             {/* Actions */}
             <View style={s.actionRow}>
-                <TouchableOpacity style={s.outlineBtn} activeOpacity={0.7}>
+                <TouchableOpacity style={s.outlineBtn} activeOpacity={0.7} onPress={() => router.push('/reviews')}>
                     <Text style={s.outlineBtnText}>See Rating</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={s.primaryBtn} activeOpacity={0.7}>
+                <TouchableOpacity style={s.primaryBtn} activeOpacity={0.7} onPress={() => router.push('/checkout')}>
                     <Text style={s.primaryBtnText}>Buy Again</Text>
                 </TouchableOpacity>
             </View>
@@ -144,7 +144,8 @@ const s = StyleSheet.create({
     // ListItem
     itemCard: {
         paddingHorizontal: Spacing.xl,
-        paddingVertical: Spacing.xl,
+        paddingTop: Spacing.xl,
+        paddingBottom: Spacing.lg,
         borderBottomWidth: 1,
         borderBottomColor: '#F3F4F6',
     },
@@ -162,7 +163,7 @@ const s = StyleSheet.create({
     badge: {
         paddingHorizontal: 12,
         paddingVertical: 4,
-        borderRadius: 4,
+        borderRadius: 6,
         backgroundColor: '#ECFDF5', 
         borderWidth: 1,
         borderColor: '#A7F3D0', 
@@ -194,10 +195,10 @@ const s = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     title: {
-        fontSize: 15,
-        fontWeight: '600',
+        fontSize: 14,
+        fontWeight: '500',
         color: '#111',
-        marginBottom: 4,
+        marginBottom: 6,
         lineHeight: 20,
     },
     variant: {
@@ -211,44 +212,40 @@ const s = StyleSheet.create({
         marginTop: 'auto', 
     },
     totalText: {
-        fontSize: 15,
+        fontSize: 14,
         fontWeight: '500',
-        color: '#111',
-    },
-    totalPrice: {
-        fontSize: 15,
-        fontWeight: 'bold',
         color: '#111',
     },
 
     actionRow: {
         flexDirection: 'row',
         gap: Spacing.md,
+        marginTop: Spacing.sm,
     },
     outlineBtn: {
         flex: 1,
-        paddingVertical: 12,
+        height: 38,
         borderWidth: 1,
         borderColor: '#E5E7EB',
-        borderRadius: Radius.sm,
+        borderRadius: 6,
         alignItems: 'center',
         justifyContent: 'center',
     },
     outlineBtnText: {
-        fontSize: 14,
+        fontSize: 13,
         fontWeight: '600',
         color: '#111',
     },
     primaryBtn: {
         flex: 1,
-        paddingVertical: 12,
-        backgroundColor: '#8B5CF6', // Purple matching design
-        borderRadius: Radius.sm,
+        height: 38,
+        backgroundColor: '#8B5CF6',
+        borderRadius: 6,
         alignItems: 'center',
         justifyContent: 'center',
     },
     primaryBtnText: {
-        fontSize: 14,
+        fontSize: 13,
         fontWeight: '600',
         color: Colors.white,
     },

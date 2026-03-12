@@ -41,12 +41,12 @@ const FLASH_SALE = [
     },
 ];
 
-function SectionTitle({ title, action }) {
+function SectionTitle({ title, action, onPress }) {
     return (
         <View style={s.sectionRow}>
             <Text style={s.sectionTitle}>{title}</Text>
             {action ? (
-                <TouchableOpacity>
+                <TouchableOpacity onPress={onPress}>
                     <Text style={s.sectionAction}>{action}</Text>
                 </TouchableOpacity>
             ) : null}
@@ -87,17 +87,22 @@ export default function HomeScreen() {
                 <BannerCard />
 
                 {/* Brands */}
-                <SectionTitle title="Official Seller Partner" action="See all" />
+                <SectionTitle title="Official Seller Partner" action="See all" onPress={() => router.push('/market')} />
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={s.hScroll}>
                     {BRANDS.map((b, i) => (
-                        <View key={b} style={{ marginRight: i < BRANDS.length - 1 ? 16 : 0 }}>
+                        <TouchableOpacity 
+                            key={b} 
+                            style={{ marginRight: i < BRANDS.length - 1 ? 16 : 0 }}
+                            onPress={() => router.push('/store')}
+                            activeOpacity={0.7}
+                        >
                             <BrandCircle name={b} />
-                        </View>
+                        </TouchableOpacity>
                     ))}
                 </ScrollView>
 
                 {/* Flash Sale */}
-                <SectionTitle title="Flash Sale!" action="See all" />
+                <SectionTitle title="Flash Sale!" action="See all" onPress={() => router.push('/market-see-all')} />
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={s.hScroll}>
                     {FLASH_SALE.map((p, i) => (
                         <View key={i} style={{ marginRight: i < FLASH_SALE.length - 1 ? 16 : 0 }}>
@@ -116,7 +121,7 @@ export default function HomeScreen() {
                 </View>
 
                 {/* Active Installments */}
-                <SectionTitle title="Active Installment" action="See all" />
+                <SectionTitle title="Active Installment" action="See all" onPress={() => router.push('/plan')} />
                 <View style={s.installmentList}>
                     <ActiveInstallmentCard
                         fraction="3/6"
