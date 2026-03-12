@@ -4,9 +4,9 @@ import {
     Text,
     Animated,
     StyleSheet,
+    Image,
 } from 'react-native';
 import { router } from 'expo-router';
-import TabssiLogo from '../components/TabssiLogo';
 
 export default function SplashScreen() {
     const bgColor = useRef(new Animated.Value(0)).current;
@@ -32,7 +32,15 @@ export default function SplashScreen() {
     return (
         <View style={[styles.container, { backgroundColor: showPurple ? '#7C3AED' : '#FFFFFF' }]}>
             <View style={styles.center}>
-                <TabssiLogo color={showPurple ? '#FFFFFF' : '#7C3AED'} size={64} />
+                <Image 
+                    source={require('../assets/logo.png')} 
+                    style={{ 
+                        width: 64, 
+                        height: 64, 
+                        tintColor: showPurple ? '#FFFFFF' : '#7C3AED',
+                        resizeMode: 'contain'
+                    }} 
+                />
                 <Text style={[styles.logo, { color: showPurple ? '#FFFFFF' : '#000000' }]}>
                     Tabssi
                 </Text>

@@ -11,7 +11,6 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import TabssiLogo from '../components/TabssiLogo';
 import { Colors, Radius, Spacing } from '../constants/theme';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
@@ -93,7 +92,10 @@ function Page3Illustration() {
                 <View key={s} style={[ill.ring, { width: s, height: s, borderRadius: s / 2 }]} />
             ))}
             <View style={ill.centerBubble}>
-                <TabssiLogo color={Colors.white} size={40} />
+                <Image 
+                    source={require('../assets/logo.png')} 
+                    style={{ width: 40, height: 40, tintColor: Colors.white, resizeMode: 'contain' }} 
+                />
             </View>
             {icons.map((ic) => (
                 <View key={ic.name} style={[ill.floatIcon, { top: ic.top, bottom: ic.bottom, left: ic.left, right: ic.right }]}>
@@ -137,7 +139,10 @@ export default function OnboardingScreen() {
         <SafeAreaView style={styles.container}>
             {/* Logo */}
             <View style={styles.logoRow}>
-                <TabssiLogo color={Colors.primary} size={24} />
+                <Image 
+                    source={require('../assets/logo.png')} 
+                    style={{ width: 28, height: 28, tintColor: Colors.primary, resizeMode: 'contain' }} 
+                />
                 <Text style={styles.logoText}>Tabssi</Text>
             </View>
 
